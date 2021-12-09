@@ -14,8 +14,8 @@ class IoTDevice(models.Model):
     device_identification = fields.Char()
     passphrase = fields.Char()
     state = fields.Selection([], readonly=True)
-    model = fields.Char()
-    ip = fields.Char()
+    model = fields.Char(string="Device Model")
+    ip = fields.Char(string="IP")
     action_count = fields.Integer(compute="_compute_action_count")
 
     @api.depends("action_ids")

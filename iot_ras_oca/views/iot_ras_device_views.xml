@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="iot_ras_device_tree" model="ir.ui.view">
+        <field name="name">iot.device.tree</field>
+        <field name="model">iot.device</field>
+        <field name="inherit_id" ref="iot_oca.iot_device_tree"/>
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="last_connection"/>
+            </field>
+        </field>
+    </record>
+    <record id="iot_ras_device_form" model="ir.ui.view">
+        <field name="name">iot.device.form</field>
+        <field name="model">iot.device</field>
+        <field name="inherit_id" ref="iot_oca.iot_device_form"/>
+        <field name="arch" type="xml">
+            <field name="ip" position="after">
+                <field name="last_connection"/>
+            </field>
+            <group>
+                <group>
+                    <field name="card_registered"/>
+                </group>
+                <group>
+                    <field name="period_odoo_routine_check"/>
+                </group>
+            </group>
+            <group>
+                <group>
+                    <field name="too_little_time_between_clockings"/>
+                </group>
+                <group>
+                    <field name="minimumTimeBetweenClockings"/>
+                </group>
+            </group>
+            <group>
+                <group>
+                    <field name="setup_password"/>
+                </group>
+                <group>
+                    <field name="timeToDisplayResultAfterClocking"/>
+                </group>
+            </group>
+            <group>
+                <group>
+                    <field name="shouldGetFirmwareUpdate"/>
+                </group>
+                <group>
+                    <field name="shutdownTerminal"/>
+                </group>
+            </group>
+        </field>
+    </record>
+
+    <record id="iot_ras_device_kanban" model="ir.ui.view">
+        <field name="name">iot.device.kanban</field>
+        <field name="model">iot.device</field>
+        <field name="inherit_id" ref="iot_oca.iot_device_kanban"/>
+        <field name="arch" type="xml">
+                <field name="name"  position="after">
+                    <field name="last_connection"/>
+                    <field name="ip"/>
+                </field>
+        </field>
+    </record>
+</odoo>

@@ -18,6 +18,7 @@ class CallIot(http.Controller):
         csrf=False,
     )
     def call_unauthorized_iot(self, serial, *args, **kwargs):
+        _logger.info(f"iot input oca -- controller -- iot input controller: serial {serial}, *args {args}, **kwargs {kwargs}")
         request = http.request
         if not request.env:
             return json.dumps(False)

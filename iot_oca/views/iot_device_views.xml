@@ -150,7 +150,7 @@
         parent="iot_root_menu"
     />
     <menuitem
-        name="Config Devices"
+        name="Modify Devices Config"
         sequence="80"
         id="iot_config_device_menu"
         action="iot_device_config_action"

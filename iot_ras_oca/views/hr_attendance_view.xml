@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Copyright 2021 thingsintouch.com
+    License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
+-->
+<odoo>
+    <record id="hr_attendance_view_tree" model="ir.ui.view">
+        <field name="name">hr.attendance.tree</field>
+        <field name="model">hr.attendance</field>
+        <field name="inherit_id" ref="hr_attendance.view_attendance_tree"/>
+        <field name="arch" type="xml">
+            <field name="check_in" position="before">
+                <field name="check_in_with_RAS" invisible="1"/>
+                <button icon="fa-asterisk" attrs="{'invisible': ['|',('check_in_with_RAS', '=', True),('check_in', '==', False)]}"/>
+            </field>
+            <field name="check_out" position="before">
+                <field name="check_out_with_RAS" invisible="1"/>
+                <button name="is_non_rfid" icon="fa-asterisk" attrs="{'invisible': ['|',('check_out_with_RAS', '=', True),('check_out', '==', False)]}"/>
+            </field>
+        </field>
+    </record>
+
+</odoo>

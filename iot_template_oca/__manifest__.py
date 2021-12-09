@@ -8,10 +8,11 @@
     "license": "AGPL-3",
     "installable": True,
     "summary": "IoT base module",
-    "depends": ["iot_template_oca", "hr_attendance_rfid"],
+    "depends": ["iot_input_oca"],
     "data": [
-        "data/ras_template.xml",
-        'views/hr_attendance_view.xml',
-        'views/iot_ras_device_views.xml'
-        ],
+        "security/ir.model.access.csv",
+        "wizards/iot_device_configure.xml",
+        "views/iot_template_views.xml",
+    ],
+    "demo": ["demo/iot_template.xml"],
 }
