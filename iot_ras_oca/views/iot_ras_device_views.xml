@@ -20,6 +20,14 @@
             </field>
             <group>
                 <group>
+                    <field name="tz"/>
+                </group>
+                <group>
+                    <field name="time_format"/>
+                </group>
+            </group>
+            <group>
+                <group>
                     <field name="card_registered"/>
                 </group>
                 <group>

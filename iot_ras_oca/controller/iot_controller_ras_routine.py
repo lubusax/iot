@@ -9,6 +9,13 @@ import logging
 
 _logger = logging.getLogger(__name__)
 
+boolean_flags = [
+    "shouldGetFirmwareUpdate",
+    "shutdownTerminal",
+    "rebootTerminal",
+    "partialFactoryReset",
+    "fullFactoryReset",
+]
 
 class RAS_Routine(http.Controller):
 
@@ -20,6 +27,10 @@ class RAS_Routine(http.Controller):
         csrf=False,
     )
     def ras_routine_iot(self, serial, *args, **kwargs):
+
+        def set_boolean_flags_to_false(device):
+            for flag in boolean_flags:
+                device[flag] = False
 
         def answer_ras_routine_call(device):
             answer = {
@@ -41,7 +52,6 @@ class RAS_Routine(http.Controller):
                 "partialFactoryReset"               : device.partialFactoryReset,
                 "fullFactoryReset"                  : device.fullFactoryReset,
                 "RASxxx"                            : device.name,
-
             }
             return answer
 
@@ -62,6 +72,7 @@ class RAS_Routine(http.Controller):
             if device:
                 device.last_connection =  fields.Datetime.now()
                 res = answer_ras_routine_call(device)
+                set_boolean_flags_to_false(device)
 
         json_res = json.dumps(res)
         _logger.info(f"ras_routine_iot - response json_res {json_res}")
