@@ -29,15 +29,13 @@
         <field name="model">iot.device</field>
         <field name="inherit_id" ref="iot_oca.iot_device_kanban" />
         <field name="arch" type="xml">
-            <xpath expr="//div[@role='menu']/*[1]" position="before">
+            <xpath expr="//div[@id='actions']" position="inside">
                 <a
                     type="object"
                     name="action_show_output"
-                    role="menuitem"
-                    class="dropdown-item"
+                    class="btn btn-sm btn-link ps-0"
                 >
-                    <i class="fa fa-terminal" />
-                    Outputs
+                    <i class="fa fa-terminal" /> Outputs
                 </a>
             </xpath>
         </field>
