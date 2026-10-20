@@ -27,6 +27,7 @@
                     type="object"
                     name="action_show_input"
                     class="btn btn-sm btn-link ps-0"
+                    role="button"
                 >
                     <i class="fa fa-keyboard-o" /> Inputs
                 </a>

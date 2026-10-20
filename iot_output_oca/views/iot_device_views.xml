@@ -34,6 +34,7 @@
                     type="object"
                     name="action_show_output"
                     class="btn btn-sm btn-link ps-0"
+                    role="button"
                 >
                     <i class="fa fa-terminal" /> Outputs
                 </a>
